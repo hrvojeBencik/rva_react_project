@@ -2,6 +2,7 @@ import { ApiService } from './services/ApiService.js'
 import { Article } from './models/Article.js';
 import { useEffect } from 'react';
 import ArticleTile from './components/ArticleTile.js';
+import NavBar from './components/NavBar.js';
 
 const api = new ApiService();
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="container">
+      <NavBar />
       {articles.map((item) => <ArticleTile article={item}/>)}
     </div>
   );
