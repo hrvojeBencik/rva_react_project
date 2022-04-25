@@ -1,19 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiByp8kv8JHgFVrLDz8V1s.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/poppins/v19/pxiEyp8kv8JHgFVrFJA.ttf) format('truetype');
+}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
 }
-
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
-
 .container {
-    max-width: 60%;
-    margin: 30px auto;
-    overflow: auto;
-    min-height: 300px;
-    padding: 30px;
-    background-color: red;
+  max-width: 60%;
+  margin: 0 auto;
+  overflow: auto;
+  min-height: 300px;
+  padding: 30px;
+}
+.article-tile {
+  display: inline-block;
+}
+.article-tile img {
+  width: 40%;
+  float: left;
+  border-radius: 4px;
+}
+.article-tile .article-data {
+  float: left;
+  margin: 30px;
+}
+.article-tile .article-data h3 {
+  font-size: 30pt;
+}
+.article-tile .article-data h4 {
+  font-size: 12pt;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.article-tile .article-data a {
+  background-color: #175f78;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
 }
