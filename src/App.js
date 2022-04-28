@@ -1,28 +1,38 @@
 import { ApiService } from './services/ApiService.js'
-import { Article } from './models/Article.js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ArticleTile from './components/ArticleTile.js';
 import NavBar from './components/NavBar.js';
+import Loading from './components/Loading.js';
 
 const api = new ApiService();
 
-const articles = [
-  new Article('Naslov novosti', 'Opis novosti', 'https://www.google.com', 'https://www.bing.com/th?id=ORMS.c517b7e82a78c8451c0f5f42297edd21&pid=Wdp', '24.04.2022.'),
-  new Article('Naslov novosti', 'Opis novosti', 'https://www.google.com', 'https://www.bing.com/th?id=ORMS.c517b7e82a78c8451c0f5f42297edd21&pid=Wdp', '24.04.2022.'),
-  new Article('Naslov novosti', 'Opis novosti', 'https://www.google.com', 'https://www.bing.com/th?id=ORMS.c517b7e82a78c8451c0f5f42297edd21&pid=Wdp', '24.04.2022.'),
-]
-
 function App() {
+  const [articles, setArticles] = useState([])
+  const [errorMessage, setErrorMessage] = useState('')
+  const newsCategory = 'Sports';
 
-  // useEffect(
-  //   () => api.getNews(),
-  //   [],
-  // )
+  useEffect(
+    () => setNewsCategory(newsCategory),
+    [],
+  )
+  
+  const setNewsCategory = (category) => {
+    const fetchData = async () => {
+      const data = await api.getNews(category)
+      if(data.length !== 0) {
+       setArticles(data.value) 
+      } else {
+      setErrorMessage('There is a problem with the server')
+      }
+    };
+
+    fetchData()
+  }
 
   return (
     <div className="container">
-      <NavBar />
-      {articles.map((item) => <ArticleTile article={item}/>)}
+      <NavBar onClick={setNewsCategory}/>
+      {errorMessage !== '' ? <p>{errorMessage}</p>  : !articles ? <Loading /> : articles.map((item, index) => <ArticleTile key={index} article={item}/>)}
     </div>
   );
 }

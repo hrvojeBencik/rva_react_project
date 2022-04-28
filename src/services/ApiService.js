@@ -5,17 +5,20 @@ class ApiService {
     #options = {
 	method: 'GET',  
 	headers: {
+        'Accept-Language': 'en-US',
 		'X-BingApis-SDK': 'true',
 		'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com',
 		'X-RapidAPI-Key': this.#apiKey,
 	    }
     };
 
-    getNews() {
-        fetch(`${this.#baseUrl}/news?count=12&safeSearch=Off&textFormat=Raw`, this.#options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+    async getNews(category) {
+        if(category) {
+            const res = await fetch(`${this.#baseUrl}/news?category=${category}&cc=gb&count=12&safeSearch=Off&textFormat=Raw`, this.#options)
+            return await res.json()
+        }
+
+        return [];
     }
 }
 

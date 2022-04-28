@@ -1,10 +1,22 @@
 const ArticleTile = ({ article }) => {
+  const date = article.datePublished.substring(0, 10)
+  let imageUrl = ''
+  if(!article.image) {
+    imageUrl = ''
+  } else if (!article.image.thumbnail) {
+    imageUrl = ''
+  } else {
+    imageUrl = article.image.thumbnail.contentUrl
+  }
+
   return (
     <div className="article-tile">
-        <img src={article.image} alt="" />
+        <div className="image">
+            <img src={imageUrl} alt="" />
+        </div>
         <div className="article-data">
             <h3>{article.name}</h3>
-            <p>{article.date}</p>
+            <p>{date}</p>
             <h4>{article.description}</h4>
             <a rel="noreferrer" target="_blank" href={article.url}>Find Out More</a>
         </div>

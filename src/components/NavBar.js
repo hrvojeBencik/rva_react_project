@@ -1,12 +1,12 @@
-const NavBar = () => {
+const NavBar = ({ onClick }) => {
   return (
     <div className="nav">
         <h3>RVA News</h3>
         <ul>
-            <li>Sports</li>
-            <li>Business</li>
-            <li>Health</li>
-            <li>Politics</li>
+            <li onClick={() => onClick('Sports')}>Sports</li>
+            <li onClick={() => onClick('Business')}>Business</li>
+            <li onClick={() => onClick('Health')}>Health</li>
+            <li onClick={() => onClick('Politics')}>Politics</li>
         </ul>
     </div>
   )
