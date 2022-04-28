@@ -12,7 +12,7 @@ const ArticleTile = ({ article }) => {
   return (
     <div className="article-tile">
         <div className="image">
-            <img src={imageUrl} alt="" />
+            {imageUrl === '' ? <p>No Image Found</p> : <img src={imageUrl} alt="" />}
         </div>
         <div className="article-data">
             <h3>{article.name}</h3>

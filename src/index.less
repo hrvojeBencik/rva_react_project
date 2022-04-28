@@ -65,6 +65,15 @@ body {
                 background-color: fade(@dark-green, 50%);
             }
         }
+
+        .contactBtn {
+            background-color: @dark-green;
+            color: white;
+            &:hover {
+                background-color: fade(@dark-green, 20%);
+                color: black;
+            }
+        }
     }
 }
 
@@ -104,4 +113,42 @@ body {
             text-decoration: none;
         }
     }
+}
+
+.contact-form {
+    margin: 30px 0;
+
+    input {
+        width: 50%;
+        padding: 10px 20px;
+        border: 2px solid @dark-green;
+        border-radius: @default-border-radius;
+        margin-top: 10px;
+        font-size: 12pt;
+
+        &[type="submit"] {
+            width: 25%;
+            border: none;
+            background-color: @dark-green;
+            color: white;
+
+            &:disabled {
+                background-color: fade(@dark-green, 20%);
+                color: grey;
+
+                &:hover {
+                    cursor: default;
+                    background-color: fade(@dark-green, 20%);
+                    color: grey;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: fade(@dark-green, 20%);
+                color: black;
+            }
+        }
+    }
+
 }

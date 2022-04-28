@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ArticleTile from './components/ArticleTile.js';
 import NavBar from './components/NavBar.js';
 import Loading from './components/Loading.js';
+import ContactForm from './components/ContactForm.js';
 
 const api = new ApiService();
 
@@ -17,6 +18,7 @@ function App() {
   )
   
   const setNewsCategory = (category) => {
+    setArticles([])
     const fetchData = async () => {
       const data = await api.getNews(category)
       if(data.length !== 0) {
@@ -32,7 +34,8 @@ function App() {
   return (
     <div className="container">
       <NavBar onClick={setNewsCategory}/>
-      {errorMessage !== '' ? <p>{errorMessage}</p>  : !articles ? <Loading /> : articles.map((item, index) => <ArticleTile key={index} article={item}/>)}
+      {errorMessage !== '' ? <p>{errorMessage}</p>  : !articles || articles.length === 0 ? <Loading /> : articles.map((item, index) => <ArticleTile key={index} article={item}/>)}
+      {articles && articles.length !== 0 && <ContactForm />}
     </div>
   );
 }
