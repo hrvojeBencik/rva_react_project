@@ -152,3 +152,49 @@ body {
     }
 
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .nav {
+        h3 {
+            display: block;
+            text-align: center;
+        }
+
+        ul {
+            float: none;
+            .contactBtn {
+                display: none;
+            }
+        }
+    }
+
+    .article-tile {
+        display: block;
+        .image {
+            margin: 10px;
+            img {
+                width: 100%;
+            }
+        }
+
+        .article-data {
+            margin: 10px;
+        }
+    }
+
+    .contact-form {
+        display: block;
+        text-align: center;
+
+        input {
+            width: 70%;
+            &[type="submit"] {
+                width: 50%;
+            }
+        }
+    }
+  }

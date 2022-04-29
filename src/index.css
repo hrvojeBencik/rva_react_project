@@ -144,3 +144,40 @@ body {
   background-color: rgba(23, 95, 120, 0.2);
   color: black;
 }
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
+  .nav h3 {
+    display: block;
+    text-align: center;
+  }
+  .nav ul {
+    float: none;
+  }
+  .nav ul .contactBtn {
+    display: none;
+  }
+  .article-tile {
+    display: block;
+  }
+  .article-tile .image {
+    margin: 10px;
+  }
+  .article-tile .image img {
+    width: 100%;
+  }
+  .article-tile .article-data {
+    margin: 10px;
+  }
+  .contact-form {
+    display: block;
+    text-align: center;
+  }
+  .contact-form input {
+    width: 70%;
+  }
+  .contact-form input[type="submit"] {
+    width: 50%;
+  }
+}
