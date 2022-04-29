@@ -144,6 +144,43 @@ body {
   background-color: rgba(23, 95, 120, 0.2);
   color: black;
 }
+@media only screen and (max-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+  .nav {
+    display: block;
+    text-align: center;
+  }
+  .nav h3 {
+    display: block;
+    text-align: center;
+  }
+  .nav ul {
+    float: none;
+  }
+  .contact-form {
+    display: block;
+    text-align: center;
+  }
+  .contact-form input {
+    width: 70%;
+  }
+  .contact-form input[type="submit"] {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .article-tile .image {
+    flex: 1;
+  }
+  .article-tile .image img {
+    width: 200px;
+  }
+  .article-tile .article-data {
+    flex: 3;
+  }
+}
 @media only screen and (max-width: 600px) {
   .container {
     max-width: 100%;
@@ -169,15 +206,5 @@ body {
   }
   .article-tile .article-data {
     margin: 10px;
-  }
-  .contact-form {
-    display: block;
-    text-align: center;
-  }
-  .contact-form input {
-    width: 70%;
-  }
-  .contact-form input[type="submit"] {
-    width: 50%;
   }
 }
